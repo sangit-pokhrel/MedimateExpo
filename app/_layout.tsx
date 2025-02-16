@@ -9,12 +9,17 @@ export default function RootLayout() {
       }}
     >
       {/* Explicitly define routes */}
-      <Stack.Screen name="(root)/(tabs)/index" /> {/* Default index screen */}
-      <Stack.Screen name="(root)/home/home" /> {/* Home screen */}
-      <Stack.Screen name="(root)/pages/splashtwo" /> {/* SplashTwo screen */}
-      <Stack.Screen name="/splash" /> {/* Splash screen */}
-      <Stack.Screen name="/splashone" /> {/* SplashOne screen */}
-      <Stack.Screen name="/(root)/pages/login" /> {/* SplashOne screen */}
+      {/* <Stack.Screen name="(root)/(tabs)/index" /> 
+      <Stack.Screen name="(root)/home/home" />
+      <Stack.Screen name="(root)/pages/splashtwo" /> 
+      <Stack.Screen name="/splash" /> 
+      <Stack.Screen name="/splashone" /> 
+      <Stack.Screen name="/(root)/pages/login" />
+      <Stack.Screen name="/(root)/appointment/appointment" />
+      <Stack.Screen name="/(root)/navigation/navigation" />
+      <Stack.Screen name="/(root)/medicationhistory/medicationhistory" />
+      <Stack.Screen name="/(root)/settings/settings" />
+      <Stack.Screen name="/(root)/reminders/reminders" /> */}
     </Stack>
   );
 }

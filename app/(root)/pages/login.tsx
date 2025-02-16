@@ -13,6 +13,7 @@ import { useRouter } from "expo-router";
 import { auth, db } from "@/app/firebase"; // Import Firebase configuration
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { doc, getDoc } from "firebase/firestore";
+import AsyncStorage from "@react-native-async-storage/async-storage"; // Import AsyncStorage
 
 const LoginScreen = () => {
   const [email, setEmail] = useState("");
@@ -32,6 +33,7 @@ const LoginScreen = () => {
   const handleLogin = async () => {
     try {
       setLoading(true); // Show loader
+
       // Firebase Authentication: Sign In
       const userCredential = await signInWithEmailAndPassword(
         auth,
@@ -45,8 +47,14 @@ const LoginScreen = () => {
       const userData = userDoc.data();
 
       if (userData) {
+        // Store session data in AsyncStorage
+        await AsyncStorage.setItem(
+          "userSession",
+          JSON.stringify({ uid: user.uid, email: user.email })
+        );
+
         // Redirect to home or other authenticated pages
-        router.push("/pages/home");
+        router.push("/home/home");
       } else {
         showCustomAlert("Error", "User data not found.");
       }
